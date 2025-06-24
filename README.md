@@ -1,6 +1,7 @@
 # PhrasePal
 
 **What is PhrasePal?**
+
 An AI assistant that helps you learn idioms and phrases from videos.
 
 Extracts tricky expressions from subtitles or video speech.
@@ -11,6 +12,7 @@ Connects language learning to real-life conversations.
 
 
 **Key Features:**
+
 Upload video files or subtitle files (.srt, .vtt).
 
 Transcribe video speech if subtitles aren’t available (using Whisper).
@@ -25,6 +27,7 @@ User-friendly web interface to view phrases and test knowledge.
 
 
 **How We’ll Build It:**
+
 Start by parsing subtitle files to get video text.
 
 Use Whisper to transcribe speech from videos without subtitles.
