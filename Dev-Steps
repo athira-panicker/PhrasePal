@@ -1,0 +1,78 @@
+In-depth Development Breakdown for PhrasePal
+
+1. Data Extraction and Preparation
+Subtitle/Text Extraction:
+Parse subtitle files (.srt/.vtt) using Python libraries like pysrt or custom parsers to get timestamped text lines.
+If no subtitles, run audio through a speech-to-text model like OpenAI Whisper to get accurate transcripts with timestamps.
+This raw text is your base data.
+
+Preprocessing:
+Clean the text by removing noise (e.g., filler words, punctuation that confuses the models).
+Normalize phrases (lowercase, lemmatize) for better matching and detection.
+
+
+2. Phrase and Idiom Detection
+Rule-Based & Dictionary Matching:
+Start with a curated list or database of common idioms and phrasal verbs.
+Use keyword matching, regex, or spaCy’s pattern matcher to flag these phrases in the text.
+
+AI-Powered Detection (Using GPT or Similar):
+For more flexible and contextual detection, send subtitle lines or chunks of text to an AI model like GPT.
+Prompt it to identify idioms or phrases with explanations or highlight them.
+This method handles variations and new expressions better than rigid matching.
+
+Context Awareness:
+Since idioms often depend on context, consider feeding surrounding text for better phrase identification and disambiguation.
+
+
+3. Explanation Generation
+Prompt Engineering:
+Design prompts that instruct GPT (or similar) to:
+
+Define the phrase clearly in learner-friendly language.
+
+Provide example sentences (ideally from different contexts).
+
+Optionally include origin or usage notes.
+
+Batch Processing:
+Process phrases in batches to optimize API usage and speed.
+
+Caching:
+Store explanations locally or in a database to avoid repeated API calls and speed up user experience.
+
+
+4. Quiz and Flashcard Creation
+Question Generation:
+Use AI to generate quiz questions such as:
+
+Multiple choice (What does this phrase mean?)
+
+Fill-in-the-blank sentences with the idiom missing.
+
+Matching phrases with meanings.
+
+Adaptive Learning:
+Track user performance and repeat difficult phrases more often (spaced repetition logic).
+
+
+5. Frontend Interaction
+Phrase Visualization:
+Display phrases with their explanations and examples alongside the video’s timeline or subtitle text.
+Allow users to click on phrases to get more info or hear pronunciation.
+
+Interactive Quizzes:
+Provide instant feedback, explanations on wrong answers, and progress tracking.
+
+
+6. Optimization & Scaling
+Performance:
+Use asynchronous calls when working with AI APIs to keep UI responsive.
+Optimize subtitle parsing and phrase detection pipelines for speed.
+
+Extensibility:
+Architect the system modularly so you can add new features like multilingual support or voice interaction later.
+
+User Data & Privacy:
+If you store user data, implement proper data protection and privacy measures.
+
